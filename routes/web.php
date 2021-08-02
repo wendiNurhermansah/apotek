@@ -38,4 +38,10 @@ Route::prefix('MasterRole')->namespace('masterRole')->name('MasterRole.')->group
     Route::post('{id}/updatePassword', 'PenggunaController@updatePassword')->name('updatePassword');
 });
 
+Route::prefix('Asyfa')->namespace('asyfa')->name('Asyfa.')->group(function(){
+    Route::resource('Data_barang', 'DatabarangController');
+    Route::post('Data_barang/api', 'DatabarangController@api')->name('Data_barang.api');
+    Route::resource('Jenis_barang', 'JenisbarangController');
+
+});
 

@@ -25,4 +25,18 @@
         <i class="icon icon-angle-right s-18 pull-right"></i>
         </a>
     </li>
+
+    <li class="header"><strong>APOTEK ASYFA</strong></li>
+    <li>
+        <a href="{{route('Asyfa.Data_barang.index')}}"><i class="icon icon-glass blue-text s-18"></i>
+        <span>Data Barang</span>
+        <i class="icon icon-angle-right s-18 pull-right"></i>
+        </a>
+    </li>
+    <li>
+        <a href="{{route('Asyfa.Jenis_barang.index')}}"><i class="icon icon-th-list blue-text s-18"></i>
+        <span>Jenis Barang</span>
+        <i class="icon icon-angle-right s-18 pull-right"></i>
+        </a>
+    </li>
 </ul>

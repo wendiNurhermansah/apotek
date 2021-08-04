@@ -121,12 +121,12 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-6">
-                            <img src="assets/img/icon/icon-plane.png" alt="">
+                            <img src="assets/img/apotek.jpeg" alt="">
                         </div>
                         <div class="col-lg-6 p-t-100">
                             <div class="text-white">
-                                <h1>SIPADAT</h1>
-                                <h3>Sistem Pangkalan Data Tenaga Kerja</h3>
+                                <h1>APOTEK ASYIFA</h1>
+                                <h3>Data Barang Apotek Asyifa</h3>
 
                             </div>
                             <form method="POST" action="{{ route('login') }}" autocomplete="off">

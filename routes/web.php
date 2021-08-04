@@ -12,9 +12,12 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Auth::routes();
 
-Route::get('/', 'HomeController@index');
-Route::get('/dashboard', 'HomeController@index')->name('dashboard');
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/', 'DashboardController@index');
+Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 
 Route::prefix('MasterRole')->namespace('masterRole')->name('MasterRole.')->group(function(){
     //role
@@ -42,6 +45,12 @@ Route::prefix('Asyfa')->namespace('asyfa')->name('Asyfa.')->group(function(){
     Route::resource('Data_barang', 'DatabarangController');
     Route::post('Data_barang/api', 'DatabarangController@api')->name('Data_barang.api');
     Route::resource('Jenis_barang', 'JenisbarangController');
+    Route::post('Jenis_barang/api', 'JenisbarangController@api')->name('Jenis_barang.api');
+
+    Route::resource('Obat_Terjual', 'ObatterjualController');
+    Route::post('Obat_Terjual/api', 'ObatterjualController@api')->name('Obat_Terjual.api');
 
 });
+
+
 

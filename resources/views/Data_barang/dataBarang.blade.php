@@ -146,10 +146,10 @@
             {data: 'nama_barang', name: 'nama_barang'},
             {data: 'satuan', name: 'satuan'},
             {data: 'jenis_barang_id', name: 'jenis_barang_id'},
-            {data: 'harga_barang', name: 'harga_barang'},
+            {data: 'harga_barang', name: 'harga_barang',  render: $.fn.dataTable.render.number(',', '.', 2, '')},
             {data: 'jumlah_barang', name: 'jumlah_barang'},
-            {data: 'harga_jual', name: 'harga_jual'},
-            {data: 'harga_perawat', name: 'harga_perawat'},
+            {data: 'harga_jual', name: 'harga_jual',  render: $.fn.dataTable.render.number(',', '.', 2, '')},
+            {data: 'harga_perawat', name: 'harga_perawat',  render: $.fn.dataTable.render.number(',', '.', 2, '')},
             {data: 'action', name: 'action', orderable: false, searchable: false, className: 'text-center'}
         ]
     });

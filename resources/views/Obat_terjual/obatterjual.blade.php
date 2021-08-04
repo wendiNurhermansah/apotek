@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@section('title', 'Pengguna')
+@section('title', 'Data Barang Terjual')
 
 @section('content')
 <div class="page has-sidebar-left height-full">
@@ -8,42 +8,51 @@
             <div class="row p-t-b-10 ">
                 <div class="col">
                     <h4>
-                        <i class="icon icon-users mr-2"></i>
-                        List Pengguna
+                        <i class="icon icon-list mr-2"></i>
+                        List Data Barang Terjual
                     </h4>
                 </div>
             </div>
             <div class="row justify-content-between">
                 <ul role="tablist" class="nav nav-material nav-material-white responsive-tab">
                     <li class="nav-item">
-                        <a class="nav-link active show" id="tab1" data-toggle="tab" href="#semua-data" role="tab"><i class="icon icon-home2"></i>Semua Data</a>
+                        <a class="nav-link active show" id="tab1" data-toggle="tab" href="#semua-data" role="tab"><i class="icon icon-home2"></i>Semua Barang Terjual</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="tab2" data-toggle="tab" href="#tambah-data" role="tab"><i class="icon icon-plus"></i>Tambah Data</a>
+                        <a class="nav-link" id="tab2" data-toggle="tab" href="#tambah-data" role="tab"><i class="icon icon-plus"></i>Input Barang Terjual</a>
                     </li>
                 </ul>
             </div>
         </div>
     </header>
     <div class="container-fluid relative animatedParent animateOnce">
+        @if (session('status'))
+            <div class="alert alert-success  mt-1">
+                {{ session('status') }}
+            </div>
+        @endif
         <div class="tab-content my-3" id="pills-tabContent">
             <div class="tab-pane animated fadeInUpShort show active" id="semua-data" role="tabpanel">
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card no-b">
                             <div class="card-body">
-                                <div class="table-responsive">
+                                
                                     <table id="dataTable" class="table table-striped table-bordered" style="width:100%">
                                         <thead>
                                             <th width="30">No</th>
-                                            <th>Username</th>
-                                            <th>Nama</th>
-                                            <th>Email</th>
-                                            <th></th>
+                                            <th>NAMA OBAT</th>
+                                            <th>JUMLAH HARGA</th>
+                                            <th>JUMLAH QTY</th>
+                                            <th>TANGGAL</th>
+                                            
                                         </thead>
                                         <tbody></tbody>
                                     </table>
-                                </div>
+                                
+                                <div class="mt-5">PENGHASILAN HARI INI    : Rp. {{number_format($today[0]->total,2,',','.')}} </div>
+                                
+                                <div>PENGHASILAN BULANAN INI   : Rp. {{number_format($month[0]->total,2,',','.')}}</div>
                             </div>
                         </div>
                     </div>
@@ -57,42 +66,35 @@
                             <div class="card-body">
                                 <form class="needs-validation" id="form" method="POST"  enctype="multipart/form-data" novalidate>
                                     {{ method_field('POST') }}
+                                    
                                     <input type="hidden" id="id" name="id"/>
                                     <h4 id="formTitle">Tambah Data</h4><hr>
                                     <div class="form-row form-inline">
                                         <div class="col-md-8">
-                                            <div class="form-group m-0">
-                                                <label for="username" class="col-form-label s-12 col-md-2">Username</label>
-                                                <input type="text" name="username" id="username" class="form-control r-0 light s-12 col-md-6" autocomplete="off" required/>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="col-form-label s-12 col-md-2">Role</label>
+                                            
+                                            <div class="form-group mt-3">
+                                                <label class="col-form-label s-12 col-md-2">Nama Obat</label>
                                                 <div class="col-md-6 p-0 bg-light">
-                                                    <select class="select2 form-control r-0 light s-12" name="role_id" id="role_id" autocomplete="off">
+                                                    <select class="select2 form-control r-0 light s-12" name="n_barang" id="n_barang" autocomplete="off">
                                                         <option value="">Pilih</option>
-                                                        @foreach ($roles as $i)
-                                                            <option value="{{ $i->id }}">{{ $i->name }}</option>
+                                                       @foreach ($Data as $item)
+                                                        <option value="{{$item->id}}">{{$item->nama_barang}}</option>
                                                         @endforeach
+                                                       
                                                     </select>
                                                 </div>
                                             </div>
-                                            <div class="form-group m-t-5">
-                                                <label for="password" class="col-form-label s-12 col-md-2">Password</label>
-                                                <input type="password" name="password" id="password" class="form-control r-0 light s-12 col-md-6" autocomplete="off" required/>
+                                            
+                                            <div class="form-group mt-3">
+                                                <label for="jumlah_qty" class="col-form-label s-12 col-md-2">Jumlah qty</label>
+                                                <input type="text" name="jumlah_qty" id="jumlah_qty" class="form-control r-0 light s-12 col-md-6" autocomplete="off" required/>
                                             </div>
-                                            <div class="form-group m-0">
-                                                <label for="nama" class="col-form-label s-12 col-md-2">Nama</label>
-                                                <input type="text" name="nama" id="nama" class="form-control r-0 light s-12 col-md-6" autocomplete="off" required/>
+                                            <div class="form-group mt-3">
+                                                <label for="jumlah_harga" class="col-form-label s-12 col-md-2">Jumlah Harga</label>
+                                                <input type="text" name="jumlah_harga" id="jumlah_harga" class="form-control r-0 light s-12 col-md-6" autocomplete="off" required/>
                                             </div>
-                                            <div class="form-group m-0">
-                                                <label for="email" class="col-form-label s-12 col-md-2">Email</label>
-                                                <input type="email" name="email" id="email" class="form-control r-0 light s-12 col-md-6" autocomplete="off" required/>
-                                            </div>
-
-                                            <div class="form-group m-0">
-                                                <label class="col-form-label s-12 col-md-2"></label>
-                                                <img width="150" class="rounded img-fluid mt-2" id="preview" alt=""/>
-                                            </div>
+                                            
+                                            
                                             <div class="mt-2" style="margin-left: 17%">
                                                 <button type="submit" class="btn btn-primary btn-sm" id="action"><i class="icon-save mr-2"></i>Simpan<span id="txtAction"></span></button>
                                                 <a class="btn btn-sm" onclick="add()" id="reset">Reset</a>
@@ -115,17 +117,20 @@
         processing: true,
         serverSide: true,
         order: [ 0, 'asc' ],
+        
         ajax: {
-            url: "{{ route('MasterRole.pengguna.api') }}",
+            url: "{{ route('Asyfa.Obat_Terjual.api') }}",
             method: 'POST'
         },
         columns: [
             {data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false, align: 'center', className: 'text-center'},
-            {data: 'admin_id', name: 'admin_id'},
-            {data: 'nama', name: 'nama'},
-            {data: 'email', name: 'email'},
-            {data: 'action', name: 'action', orderable: false, searchable: false, className: 'text-center'}
-        ]
+            {data: 'n_barang', name: 'n_barang', className: 'text-center'},
+            {data: 'jumlah_harga', name: 'jumlah_harga', className: 'text-center',  render: $.fn.dataTable.render.number(',', '.', 2, '')},
+            {data: 'jumlah_qty', name: 'jumlah_qty', className: 'text-center'},
+            {data: 'created_at', name: 'created_at', className: 'text-center'},
+           
+        ],
+        
     });
 
     function add(){
@@ -147,7 +152,7 @@
         }
         else{
             $('#alert').html('');
-            url = "{{ route('MasterRole.pengguna.store') }}",
+            url = "{{ route('Asyfa.Obat_Terjual.store') }}",
             $.ajax({
                 url : url,
                 type : 'POST',
@@ -176,35 +181,34 @@
         $(this).addClass('was-validated');
     });
 
-    function remove(id){
-        $.confirm({
-            title: '',
-            content: 'Apakah Anda yakin akan menghapus data ini ?',
-            icon: 'icon icon-question amber-text',
-            theme: 'modern',
-            closeIcon: true,
-            animation: 'scale',
-            type: 'red',
-            buttons: {
-                ok: {
-                    text: "ok!",
-                    btnClass: 'btn-primary',
-                    keys: ['enter'],
-                    action: function(){
-                        $.post("{{ route('MasterRole.pengguna.destroy', ':id') }}".replace(':id', id), {'_method' : 'DELETE'}, function(data) {
-                           table.api().ajax.reload();
-                            if(id == $('#id').val()) add();
-                        }, "JSON").fail(function(){
-                            location.reload();
-                        });
-                    }
-                },
-                cancel: function(){}
-            }
-        });
-    }
+    // function remove(id){
+    //     $.confirm({
+    //         title: '',
+    //         content: 'Apakah Anda yakin akan menghapus data ini ?',
+    //         icon: 'icon icon-question amber-text',
+    //         theme: 'modern',
+    //         closeIcon: true,
+    //         animation: 'scale',
+    //         type: 'red',
+    //         buttons: {
+    //             ok: {
+    //                 text: "ok!",
+    //                 btnClass: 'btn-primary',
+    //                 keys: ['enter'],
+    //                 action: function(){
+    //                     $.post("{{ route('Asyfa.Data_barang.destroy', ':id') }}".replace(':id', id), {'_method' : 'DELETE'}, function(data) {
+    //                        table.api().ajax.reload();
+    //                         if(id == $('#id').val()) add();
+    //                     }, "JSON").fail(function(){
+    //                         location.reload();
+    //                     });
+    //                 }
+    //             },
+    //             cancel: function(){}
+    //         }
+    //     });
+    // }
 
     </script>
 
 @endsection
-

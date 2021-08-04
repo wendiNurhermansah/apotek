@@ -15,7 +15,7 @@
             <div class="row justify-content-between">
                 <ul class="nav nav-material nav-material-white responsive-tab" id="v-pegawai-tab" role="tablist">
                     <li>
-                        <a class="nav-link" href=""><i class="icon icon-arrow_back"></i>Semua Role</a>
+                        <a class="nav-link" href="{{route('MasterRole.role.index')}}"><i class="icon icon-arrow_back"></i>Semua Role</a>
                     </li>
                 </ul>
             </div>

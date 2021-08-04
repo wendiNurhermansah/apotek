@@ -101,6 +101,10 @@ class DatabarangController extends Controller
         $Data_perusahaan->harga_jual = $jual;
         $Data_perusahaan->harga_perawat = $nakes;
         $Data_perusahaan->save();
+
+        return response()->json([
+            'message' => 'Data berhasil tersimpan.'
+        ]);
     }
 
     /**

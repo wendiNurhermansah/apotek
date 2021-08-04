@@ -52,7 +52,9 @@ class ObatterjualController extends Controller
             ->editColumn('n_barang', function($p){
                 return $p->Obat->nama_barang;
             })
-
+            ->editColumn('created_at', function($p){
+                return substr($p->created_at, 0,10) ;
+            })
            
 
             ->addIndexColumn()

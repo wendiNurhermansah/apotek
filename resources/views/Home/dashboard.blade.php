@@ -28,7 +28,7 @@
                                 <span class="icon icon-notebook-text  s-48"></span>
                             </div>
                             <div class="counter-title"><strong>Jumlah Jenis Obat</strong></div>
-                            <h5 class="sc-counter mt-3">{{$jenis}}</h5>
+                            <h5 class=" mt-3">{{$jenis}}</h5>
                             
                         </div>
                     </div>
@@ -40,7 +40,7 @@
                                 <span class="icon icon-organization-1  s-48"></span>
                             </div>
                             <div class="counter-title"><strong>Jumlah Keseluruhan stok Obat</strong></div>
-                            <h5 class="sc-counter mt-3">{{$barang}}</h5>
+                            <h5 class=" mt-3">{{$barang}}</h5>
                             
                         </div>
                     </div>
@@ -52,7 +52,7 @@
                                 <span class="icon icon-money-bag  s-48"></span>
                             </div>
                             <div class="counter-title"><strong>Penghasilan hari ini</strong></div>
-                            <h5 class="sc-counter mt-3">{{$today[0]->total}}</h5>
+                            <h5 class=" mt-3">{{number_format($today[0]->total,2,',','.')}}</h5>
                         </div>
                     </div>
                 </div>
@@ -63,7 +63,7 @@
                                 <span class="icon icon-dollar  s-48"></span>
                             </div>
                             <div class="counter-title"><strong>Penghasilan Bulan ini</strong></div>
-                            <h5 class="sc-counter mt-3">{{$month[0]->total}}</h5>
+                            <h5 class=" mt-3">{{number_format($month[0]->total,2,',','.')}}</h5>
                         </div>
                     </div>
                 </div>

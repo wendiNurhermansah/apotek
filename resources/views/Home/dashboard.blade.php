@@ -52,7 +52,7 @@
                                 <span class="icon icon-money-bag  s-48"></span>
                             </div>
                             <div class="counter-title"><strong>Penghasilan hari ini</strong></div>
-                            <h5 class=" mt-3">{{number_format($today[0]->total,2,',','.')}}</h5>
+                            <h5 class=" mt-3">{{number_format($today[0]->total,0,',','.')}}</h5>
                         </div>
                     </div>
                 </div>
@@ -63,7 +63,7 @@
                                 <span class="icon icon-dollar  s-48"></span>
                             </div>
                             <div class="counter-title"><strong>Penghasilan Bulan ini</strong></div>
-                            <h5 class=" mt-3">{{number_format($month[0]->total,2,',','.')}}</h5>
+                            <h5 class=" mt-3">{{number_format($month[0]->total,0,',','.')}}</h5>
                         </div>
                     </div>
                 </div>

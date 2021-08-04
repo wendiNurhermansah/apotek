@@ -50,9 +50,9 @@
                                         <tbody></tbody>
                                     </table>
                                 
-                                <div class="mt-5">PENGHASILAN HARI INI    : Rp. {{number_format($today[0]->total,2,',','.')}} </div>
+                                <div class="mt-5">PENGHASILAN HARI INI    : Rp. {{number_format($today[0]->total,0,',','.')}} </div>
                                 
-                                <div>PENGHASILAN BULANAN INI   : Rp. {{number_format($month[0]->total,2,',','.')}}</div>
+                                <div>PENGHASILAN BULANAN INI   : Rp. {{number_format($month[0]->total,0,',','.')}}</div>
                             </div>
                         </div>
                     </div>
@@ -125,7 +125,7 @@
         columns: [
             {data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false, align: 'center', className: 'text-center'},
             {data: 'n_barang', name: 'n_barang', className: 'text-center'},
-            {data: 'jumlah_harga', name: 'jumlah_harga', className: 'text-center',  render: $.fn.dataTable.render.number(',', '.', 2, '')},
+            {data: 'jumlah_harga', name: 'jumlah_harga', className: 'text-center',  render: $.fn.dataTable.render.number(',', '.', 0, '')},
             {data: 'jumlah_qty', name: 'jumlah_qty', className: 'text-center'},
             {data: 'created_at', name: 'created_at', className: 'text-center'},
            

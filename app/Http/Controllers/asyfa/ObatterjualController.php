@@ -45,9 +45,6 @@ class ObatterjualController extends Controller
     public function api(){
         $obat = Obat_terjual::all();
         return DataTables::of($obat)
-       
-
-            
 
             ->editColumn('n_barang', function($p){
                 return $p->Obat->nama_barang;

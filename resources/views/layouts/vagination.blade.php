@@ -33,7 +33,7 @@
    @endcan
    
 
-    <li class="header"><strong>APOTEK ASYFA</strong></li>
+    <li class="header"><strong>APOTEK ASYIFA</strong></li>
    @can('DataBarang')
     <li>
         <a href="{{route('Asyfa.Data_barang.index')}}"><i class="icon icon-glass orange-text s-18"></i>

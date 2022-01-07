@@ -6,8 +6,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link rel="icon" href="{{asset('assets/img/basic/preloader-logo.png')}}" type="image/x-icon">
-    <title>{{ config('app.name', 'Laravel') }} | @yield('title')</title>
+    <link rel="icon" href="{{asset('assets/img/apotek.jpeg')}}" type="image/x-icon">
+    <title>Apotek Asyfa | @yield('title')</title>
     <!-- CSS -->
     <link rel="stylesheet" href="{{asset('assets/css/app.css')}}">
     <link rel="stylesheet" href="{{ asset('assets/css/jquery-confirm.min.css') }}">
@@ -90,8 +90,8 @@
     <div id="app">
         <aside class="main-sidebar fixed offcanvas shadow" data-toggle='offcanvas'>
             <section class="sidebar">
-                <div class="w-80px mt-3 mb-3 ml-3">
-                    <img src="{{asset('assets/img/apotek.jpeg')}}" alt="">
+                <div style="height: 160px;">
+                    <img src="{{asset('assets/img/apotek.jpeg')}}" style="width: 200px; height: 200px; margin-left: 30px;" alt="">
                 </div>
                 <div class="relative">
                     

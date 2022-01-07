@@ -112,9 +112,7 @@
      
     @php
         $wen = "{$month[0]->total}";
-
-        $di = "{$today[0]->total}";
-        
+        $di = "{$today[0]->total}";        
      @endphp
 // Create the chart
 Highcharts.chart('chart', {

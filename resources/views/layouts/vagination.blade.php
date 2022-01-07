@@ -10,7 +10,7 @@
    @can('Role')
     <li>
         <a href="{{route('MasterRole.role.index')}}">
-            <i class="icon icon-key4 amber-text s-18"></i> <span>Role</span>
+            <i class="icon icon-key4 amber-text s-18"></i> <span>Akses</span>
             <i class="icon icon-angle-right s-18 pull-right"></i>
         </a>
     </li>
@@ -18,7 +18,7 @@
    @can('permission')
     <li class="no-b">
         <a href="{{route('MasterRole.permissions.index')}}">
-            <i class="icon icon-clipboard-list2 text-success s-18"></i> <span>Permission</span>
+            <i class="icon icon-clipboard-list2 text-success s-18"></i> <span>Hak Akses</span>
             <i class="icon icon-angle-right s-18 pull-right"></i>
         </a>
     </li>

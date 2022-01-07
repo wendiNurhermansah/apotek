@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="assets/img/basic/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="{{asset('assets/img/basic/favicon.ico')}}" type="image/x-icon">
     <title>Paper</title>
     <!-- CSS -->
-    <link rel="stylesheet" href="assets/css/app.css">
+    <link rel="stylesheet" href="{{asset('assets/css/app.css')}}">
     <style>
         .loader {
             position: fixed;
@@ -125,7 +125,7 @@
                         </div>
                         <div class="col-lg-6 p-t-100">
                             <div class="text-white">
-                                <h1>APOTEK ASYIFA</h1>
+                                <h1>LOGIN AKUN</h1>
                                 <h3>Data Barang Apotek Asyifa</h3>
 
                             </div>
@@ -310,7 +310,7 @@
         <div class="control-sidebar-bg shadow white fixed"></div>
     </div>
     <!--/#app -->
-    <script src="assets/js/app.js"></script>
+    <script src="{{asset('assets/js/app.js')}}"></script>
 
 
 

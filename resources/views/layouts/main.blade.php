@@ -101,7 +101,7 @@
                                 <img class="user_avatar" src="{{asset('assets/img/dummy/u2.png')}}" alt="User Image">
                             </div>
                             <div class="float-left info">
-                                <h6 class="font-weight-light mt-2 mb-1">{{Auth::User()->username}}</h6>
+                                <h6 class="font-weight-light mt-2 mb-1"></h6>
                                 <a href="#"><i class="icon-circle text-primary blink"></i> Online</a>
                             </div>
                         </div>
@@ -114,6 +114,7 @@
         </aside>
         @include('layouts.sidebar')
         @yield('content')
+        @include('layouts.footer')
     </div>
     <!--/#app -->
 

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Data_barang;
 use App\Models\Jenis_barang;
+use App\Models\Satuan;
 use DataTables;
 
 
@@ -22,7 +23,8 @@ class DatabarangController extends Controller
 
     {
         $jenis_barang = Jenis_barang::all();
-        return view ('Data_barang.dataBarang', compact('jenis_barang'));
+        $satuan = Satuan::all();
+        return view ('Data_barang.dataBarang', compact('jenis_barang', 'satuan'));
     }
 
     public function api(){
@@ -41,13 +43,7 @@ class DatabarangController extends Controller
             })
 
             ->editColumn('satuan', function($p){
-               if($p->satuan == 1){
-                return "Strip";
-               }elseif($p->satuan == 2){
-                return "Tablet";
-               }elseif($p->satuan == 3){
-                return "Box";
-               }
+               return $p->Satuan->n_satuan;
             })
 
             ->addIndexColumn()
@@ -87,10 +83,10 @@ class DatabarangController extends Controller
         $nama_barang = $request->nama_barang;
         $jenis = $request->jenis_barang_id;
         $satuan = $request->satuan;
-        $beli = $request->harga_barang;
+        $beli = str_replace(".", "", $request->harga_barang);
         $qty = $request->jumlah_barang;
-        $jual = $request->harga_jual;
-        $nakes = $request->harga_perawat;
+        $jual = str_replace(".", "", $request->harga_jual);
+        $nakes = str_replace(".", "", $request->harga_perawat);
 
         $Data_perusahaan = new Data_barang();
         $Data_perusahaan->nama_barang = $nama_barang;

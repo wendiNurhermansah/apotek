@@ -3,7 +3,7 @@
 
 @section('content')
 <div class="page has-sidebar-left height-full">
-    <header class="blue accent-3 relative nav-sticky">
+    <header class="green accent-3 relative nav-sticky">
         <div class="container-fluid text-white">
             <div class="row p-t-b-10 ">
                 <div class="col">
@@ -65,8 +65,8 @@
                                                 <label for="username" class="col-form-label s-12 col-md-2">Username</label>
                                                 <input type="text" name="username" id="username" class="form-control r-0 light s-12 col-md-6" autocomplete="off" required/>
                                             </div>
-                                            <div class="form-group">
-                                                <label class="col-form-label s-12 col-md-2">Role</label>
+                                            <div class="form-group mt-2">
+                                                <label class="col-form-label s-12 col-md-2">Akses</label>
                                                 <div class="col-md-6 p-0 bg-light">
                                                     <select class="select2 form-control r-0 light s-12" name="role_id" id="role_id" autocomplete="off">
                                                         <option value="">Pilih</option>
@@ -76,20 +76,20 @@
                                                     </select>
                                                 </div>
                                             </div>
-                                            <div class="form-group m-t-5">
+                                            <div class="form-group mt-2">
                                                 <label for="password" class="col-form-label s-12 col-md-2">Password</label>
                                                 <input type="password" name="password" id="password" class="form-control r-0 light s-12 col-md-6" autocomplete="off" required/>
                                             </div>
-                                            <div class="form-group m-0">
+                                            <div class="form-group mt-2">
                                                 <label for="nama" class="col-form-label s-12 col-md-2">Nama</label>
                                                 <input type="text" name="nama" id="nama" class="form-control r-0 light s-12 col-md-6" autocomplete="off" required/>
                                             </div>
-                                            <div class="form-group m-0">
+                                            <div class="form-group mt-2">
                                                 <label for="email" class="col-form-label s-12 col-md-2">Email</label>
                                                 <input type="email" name="email" id="email" class="form-control r-0 light s-12 col-md-6" autocomplete="off" required/>
                                             </div>
 
-                                            <div class="form-group m-0">
+                                            <div class="form-group mt-2">
                                                 <label class="col-form-label s-12 col-md-2"></label>
                                                 <img width="150" class="rounded img-fluid mt-2" id="preview" alt=""/>
                                             </div>

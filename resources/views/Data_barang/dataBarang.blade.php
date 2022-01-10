@@ -1,25 +1,25 @@
 @extends('layouts.main')
-@section('title', 'Data Barang')
+@section('title', 'Data Obat')
 
 @section('content')
 <div class="page has-sidebar-left height-full">
-    <header class="blue accent-3 relative nav-sticky">
+    <header class="green accent-3 relative nav-sticky">
         <div class="container-fluid text-white">
             <div class="row p-t-b-10 ">
                 <div class="col">
                     <h4>
                         <i class="icon icon-glass mr-2"></i>
-                        List Data Barang
+                        List Data Obat
                     </h4>
                 </div>
             </div>
             <div class="row justify-content-between">
                 <ul role="tablist" class="nav nav-material nav-material-white responsive-tab">
                     <li class="nav-item">
-                        <a class="nav-link active show" id="tab1" data-toggle="tab" href="#semua-data" role="tab"><i class="icon icon-home2"></i>Semua Barang</a>
+                        <a class="nav-link active show" id="tab1" data-toggle="tab" href="#semua-data" role="tab"><i class="icon icon-home2"></i>Semua Obat</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="tab2" data-toggle="tab" href="#tambah-data" role="tab"><i class="icon icon-plus"></i>Tambah Barang</a>
+                        <a class="nav-link" id="tab2" data-toggle="tab" href="#tambah-data" role="tab"><i class="icon icon-plus"></i>Tambah Obat</a>
                     </li>
                 </ul>
             </div>
@@ -45,7 +45,7 @@
                                             <th>SATUAN</th>
                                             <th>JENIS OBAT</th>
                                             <th>HARGA BELI</th>
-                                            <th>QTY / JUMLAH</th>
+                                            <th>QTY</th>
                                             <th>HARGA JUAL</th>
                                             <th>HARGA NAKES</th>
                                             <th>Aksi</th>
@@ -79,9 +79,9 @@
                                                 <div class="col-md-6 p-0 bg-light">
                                                     <select class="select2 form-control r-0 light s-12" name="satuan" id="satuan" autocomplete="off">
                                                         <option value="">Pilih</option>
-                                                        <option value="1">Strip</option>
-                                                        <option value="2">Tablet</option>
-                                                        <option value="3">Box</option>
+                                                        @foreach ($satuan as $i)
+                                                            <option value="{{$i->id}}">{{$i->n_satuan}}</option>
+                                                        @endforeach
                                                        
                                                     </select>
                                                 </div>
@@ -99,19 +99,19 @@
                                             </div>
                                             <div class="form-group mt-3">
                                                 <label for="harga_barang" class="col-form-label s-12 col-md-2">Harga Beli</label>
-                                                <input type="text" name="harga_barang" id="harga_barang" class="form-control r-0 light s-12 col-md-6" autocomplete="off" required/>
+                                                <input type="text" name="harga_barang" id="harga_barang" class="form-control r-0 light s-12 col-md-6" onkeyup="convertToRupiah(this)" autocomplete="off" required/>
                                             </div>
                                             <div class="form-group mt-3">
-                                                <label for="jumlah_barang" class="col-form-label s-12 col-md-2">Qty / Jumlah</label>
+                                                <label for="jumlah_barang" class="col-form-label s-12 col-md-2">Qty</label>
                                                 <input type="text" name="jumlah_barang" id="jumlah_barang" class="form-control r-0 light s-12 col-md-6" autocomplete="off" required/>
                                             </div>
                                             <div class="form-group mt-3">
                                                 <label for="harga_jual" class="col-form-label s-12 col-md-2">Harga Jual</label>
-                                                <input type="text" name="harga_jual" id="harga_jual" class="form-control r-0 light s-12 col-md-6" autocomplete="off" required/>
+                                                <input type="text" name="harga_jual" id="harga_jual" class="form-control r-0 light s-12 col-md-6" onkeyup="convertToRupiah(this)" autocomplete="off" required/>
                                             </div>
                                             <div class="form-group mt-3 ">
                                                 <label for="harga_perawat" class="col-form-label s-12 col-md-2">Harga Nakes</label>
-                                                <input type="text" name="harga_perawat" id="harga_perawat" class="form-control r-0 light s-12 col-md-6" autocomplete="off" required/>
+                                                <input type="text" name="harga_perawat" id="harga_perawat" class="form-control r-0 light s-12 col-md-6" onkeyup="convertToRupiah(this)" autocomplete="off" required/>
                                             </div>
 
                                             
@@ -153,6 +153,37 @@
             {data: 'action', name: 'action', orderable: false, searchable: false, className: 'text-center'}
         ]
     });
+
+    function convertToRupiah(objek) {
+	  separator = ".";
+	  a = objek.value;
+	  b = a.replace(/[^\d]/g,"");
+	  c = "";
+	  panjang = b.length; 
+	  j = 0; 
+	  for (i = panjang; i > 0; i--) {
+	    j = j + 1;
+	    if (((j % 3) == 1) && (j != 1)) {
+	      c = b.substr(i-1,1) + separator + c;
+	    } else {
+	      c = b.substr(i-1,1) + c;
+	    }
+	  }
+	  objek.value = c;
+
+	}       
+
+	function convertToAngka()
+	{	var nominal= document.getElementById("nominal").value;
+		var angka = parseInt(nominal.replace(/,.*|[^0-9]/g, ''), 10);
+		document.getElementById("angka").innerHTML= angka;
+	}       
+
+	function convertToAngka()
+	{	var nominal1= document.getElementById("nominal1").value;
+		var angka1 = parseInt(nominal.replace(/,.*|[^0-9]/g, ''), 10);
+		document.getElementById("angka1").innerHTML= angka;
+	}
 
     function add(){
         save_method = "add";

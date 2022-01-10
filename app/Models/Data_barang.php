@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Jenis_barang;
+use App\Models\Satuan;
 
 class Data_barang extends Model
 {
@@ -12,5 +13,9 @@ class Data_barang extends Model
 
     public function JenisBarang(){
         return $this->belongsTo(Jenis_barang::class, 'jenis_barang_id');
+    }
+
+    public function Satuan(){
+        return $this->belongsTo(Satuan::class, 'satuan');
     }
 }

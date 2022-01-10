@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="{{asset('assets/img/basic/favicon.ico')}}" type="image/x-icon">
-    <title>Paper</title>
+    <title>LOGIN AKUN</title>
     <!-- CSS -->
     <link rel="stylesheet" href="{{asset('assets/css/app.css')}}">
     <style>
@@ -121,12 +121,12 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-6">
-                            <img src="assets/img/apotek.jpeg" alt="">
+                            <img src="{{asset('assets/img/apotek.jpeg')}}" style="border-radius: 10px;" alt="">
                         </div>
                         <div class="col-lg-6 p-t-100">
                             <div class="text-white">
                                 <h1>LOGIN AKUN</h1>
-                                <h3>Data Barang Apotek Asyifa</h3>
+                                <h3>Data Barang Obat Apotek Asyifa</h3>
 
                             </div>
                             <form method="POST" action="{{ route('login') }}" autocomplete="off">
@@ -147,7 +147,7 @@
                                     </div>
                                     @endif
                                 </div>
-                                <input type="submit" class="btn btn-primary btn-lg btn-block" value="Log In">
+                                <input type="submit" class="btn btn-dark btn-lg btn-block" value="LOGIN">
                             </form>
                         </div>
                     </div>

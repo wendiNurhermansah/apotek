@@ -13,7 +13,7 @@
     </div>
 </div>
     <div class="sticky">
-        <div class="navbar navbar-expand navbar-dark d-flex justify-content-between bd-navbar blue accent-3">
+        <div class="navbar navbar-expand navbar-dark d-flex justify-content-between bd-navbar green accent-3">
            
             <div class="relative">
                 <a href="#" data-toggle="push-menu" class="paper-nav-toggle pp-nav-toggle">
@@ -49,7 +49,7 @@
                     <!-- User Account-->
                     <li class="dropdown custom-dropdown user user-menu ">
                         <a href="#" class="nav-link" data-toggle="dropdown">
-                            <img src="{{asset('assets/img/dummy/u8.png')}}" class="user-image" alt="User Image">
+                            <img src="{{asset('assets/img/dummy/u2.png')}}" class="user-image" alt="User Image">
                             <i class="icon-more_vert "></i>
                         </a>
                         <div class="dropdown-menu p-4 dropdown-menu-right" style="width:255px">
@@ -57,7 +57,7 @@
                                 <div class="col">
                                    
                                         <img class="user_avatar" src="{{asset('assets/img/dummy/u2.png')}}" alt="User Image">
-                                        <h6 class="font-weight-light mt-2 mb-1">{{Auth::User()->username}}</h6>
+                                        <h6 class="font-weight-light mt-2 mb-1"></h6>
                                      
                                         
                                 </div>

@@ -1,15 +1,15 @@
 @extends('layouts.main')
-@section('title', 'Data Barang')
+@section('title', 'Data Obat')
 
 @section('content')
 <div class="page has-sidebar-left height-full">
-    <header class="blue accent-3 relative nav-sticky">
+    <header class="green accent-3 relative nav-sticky">
         <div class="container-fluid text-white">
             <div class="row p-t-b-10 ">
                 <div class="col">
                     <h4>
                         <i class="icon icon-pencil mr-2"></i>
-                        Edit Data Barang
+                        Edit Data Obat
                     </h4>
                 </div>
             </div>
@@ -28,7 +28,7 @@
                                    {{ method_field('PATCH') }}
                                     @csrf
                                     <input type="hidden" id="id" name="id"/>
-                                    <h4 id="formTitle">Edit Data Barang</h4><hr>
+                                    <h4 id="formTitle">Edit Data Obat</h4><hr>
                                     <div class="form-row form-inline">
                                         <div class="col-md-8">
                                             <div class="form-group m-0">

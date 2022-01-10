@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,6 +50,9 @@ Route::prefix('Asyfa')->namespace('asyfa')->name('Asyfa.')->group(function(){
 
     Route::resource('Obat_Terjual', 'ObatterjualController');
     Route::post('Obat_Terjual/api', 'ObatterjualController@api')->name('Obat_Terjual.api');
+
+    Route::resource('satuan', 'SatuanController');
+    Route::post('satuan/api', 'SatuanController@api')->name('satuan.api');
 
 });
 

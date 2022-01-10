@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@section('title', 'Hak Akses')
+@section('title', 'Daftar Satuan')
 
 @section('content')
 <div class="page has-sidebar-left height-full">
@@ -9,81 +9,76 @@
                 <div class="col">
                     <h4>
                         <i class="icon icon-clipboard-list2 text-success s-18"></i>
-                        Hak Akses
+                        Daftar Satuan
                     </h4>
                 </div>
             </div>
         </div>
     </header>
-    <div class="container-fluid relative animatedParent animateOnce">
-        <div class="container-fluid my-3">
-            <div class="row">
-                <div class="col-md-8">
-                    <div class="card no-b">
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table id="dataTable" class="table table-striped table-bordered" style="width:100%">
-                                    <thead>
-                                        <th width="30">No</th>
-                                        <th>Nama</th>
-                                        <th width="80">Guard Name</th>
-                                        <th width="60"></th>
-                                    </thead>
-                                    <tbody></tbody>
-                                </table>
-                            </div>
+<div class="container-fluid relative animatedParent animateOnce">
+    <div class="container-fluid my-3">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card no-b">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table id="dataTable" class="table table-striped table-bordered" style="width:100%">
+                                <thead>
+                                    <th width="30">No</th>
+                                    <th>Nama Satuan</th>
+                                    <th width="60"></th>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div id="alert"></div>
-                    <div class="card no-b">
-                        <div class="card-body">
-                            <form class="needs-validation" id="form" method="POST"  enctype="multipart/form-data" novalidate>
-                                {{ method_field('POST') }}
-                                <input type="hidden" id="id" name="id"/>
-                                <h4 id="formTitle">Tambah Data</h4><hr>
-                                <div class="form-row form-inline">
-                                    <div class="col-md-12">
-                                        <div class="form-group m-0">
-                                            <label for="name" class="col-form-label s-12 col-md-4">Nama</label>
-                                            <input type="text" name="name" id="name" placeholder="" class="form-control r-0 light s-12 col-md-8" autocomplete="off" required/>
-                                        </div>
-                                        <div class="form-group mt-2">
-                                            <label for="guard_name" class="col-form-label s-12 col-md-4">Guard Name</label>
-                                            <input type="text" name="guard_name" id="guard_name" placeholder="" class="form-control r-0 light s-12 col-md-8" autocomplete="off" required/>
-                                        </div>
-                                        <div class="mt-2" style="margin-left: 34%">
-                                            <button type="submit" class="btn btn-primary btn-sm" id="action"><i class="icon-save mr-2"></i>Simpan<span id="txtAction"></span></button>
-                                            <a class="btn btn-sm" onclick="add()" id="reset">Reset</a>
-                                        </div>
+            </div>
+            <div class="col-md-4">
+                <div id="alert"></div>
+                <div class="card no-b">
+                    <div class="card-body">
+                        <form class="needs-validation" id="form" method="POST"  enctype="multipart/form-data" novalidate>
+                            {{ method_field('POST') }}
+                            <input type="hidden" id="id1" name="id"/>
+                            <h4 id="formTitle">Tambah Data</h4><hr>
+                            <div class="form-row form-inline">
+                                <div class="col-md-12">
+                                    <div class="form-group m-0">
+                                        <label for="n_satuan" class="col-form-label s-12 col-md-4">Nama Satuan</label>
+                                        <input type="text" name="n_satuan" id="n_satuan" placeholder="" class="form-control r-0 light s-12 col-md-8" autocomplete="off" required/>
+                                    </div>
+                                    
+                                    <div class="mt-2" style="margin-left: 34%">
+                                        <button type="submit" class="btn btn-primary btn-sm" id="action"><i class="icon-save mr-2"></i>Simpan<span id="txtAction"></span></button>
+                                        <a class="btn btn-sm" onclick="add()" id="reset">Reset</a>
                                     </div>
                                 </div>
-                            </form>
-                        </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+</div>
 
 @endsection
 
 @section('script')
-<script type="text/javascript">
+ <script type="text/javascript">
     var table = $('#dataTable').dataTable({
    processing: true,
    serverSide: true,
    order: [ 0, 'asc' ],
    ajax: {
-       url: "{{ route('MasterRole.permissions.api') }}",
+       url: "{{ route('Asyfa.satuan.api') }}",
        method: 'POST'
    },
    columns: [
        {data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false, align: 'center', className: 'text-center'},
-       {data: 'name', name: 'name'},
-       {data: 'guard_name', name: 'guard_name'},
+       {data: 'n_satuan', name: 'n_satuan'},
        {data: 'action', name: 'action', orderable: false, searchable: false, className: 'text-center'}
    ]
 });
@@ -109,7 +104,7 @@
         else{
             $('#alert').html('');
             $('#action').attr('disabled', true);
-            url = (save_method == 'add') ? "{{ route('MasterRole.permissions.index') }}" : "{{ route('MasterRole.permissions.update', ':id') }}".replace(':id', $('#id').val());
+            url = (save_method == 'add') ? "{{ route('Asyfa.satuan.store') }}" : "{{ route('Asyfa.satuan.update', ':id') }}".replace(':id', $('#id1').val());
             $.post(url, $(this).serialize(), function(data){
                 $('#alert').html("<div role='alert' class='alert alert-success alert-dismissible'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>×</span></button><strong>Success!</strong> " + data.message + "</div>");
                 table.api().ajax.reload();
@@ -137,10 +132,9 @@
         $('#txtAction').html(" Perubahan");
         $('#reset').hide();
         $('input[name=_method]').val('PATCH');
-        $.get("{{ route('MasterRole.permissions.edit', ':id') }}".replace(':id', id), function(data){
-            $('#id').val(data.id);
-            $('#name').val(data.name).focus();
-            $('#guard_name').val(data.guard_name);
+        $.get("{{ route('Asyfa.satuan.edit', ':id') }}".replace(':id', id), function(data){
+            $('#id1').val(data.id);
+            $('#n_satuan').val(data.n_satuan).focus();
         }, "JSON").fail(function(){
             reload();
         });
@@ -161,9 +155,9 @@
                     btnClass: 'btn-primary',
                     keys: ['enter'],
                     action: function(){
-                        $.post("{{ route('MasterRole.permissions.destroy', ':id') }}".replace(':id', id), {'_method' : 'DELETE'}, function(data) {
+                        $.post("{{ route('Asyfa.satuan.destroy', ':id') }}".replace(':id', id), {'_method' : 'DELETE'}, function(data) {
                            table.api().ajax.reload();
-                            if(id == $('#id').val()) add();
+                            if(id == $('#id1').val()) add();
                         }, "JSON").fail(function(){
                             reload();
                         });
@@ -172,7 +166,7 @@
                 cancel: function(){}
             }
         });
-    }
+    } 
     </script>
 
 @endsection

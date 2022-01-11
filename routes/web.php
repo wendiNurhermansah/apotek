@@ -43,16 +43,34 @@ Route::prefix('MasterRole')->namespace('masterRole')->name('MasterRole.')->group
 });
 
 Route::prefix('Asyfa')->namespace('asyfa')->name('Asyfa.')->group(function(){
+    //data barang
     Route::resource('Data_barang', 'DatabarangController');
     Route::post('Data_barang/api', 'DatabarangController@api')->name('Data_barang.api');
+
+    //jenis bararang
     Route::resource('Jenis_barang', 'JenisbarangController');
     Route::post('Jenis_barang/api', 'JenisbarangController@api')->name('Jenis_barang.api');
 
+    //tidak di pakai
     Route::resource('Obat_Terjual', 'ObatterjualController');
     Route::post('Obat_Terjual/api', 'ObatterjualController@api')->name('Obat_Terjual.api');
 
+    //satuan obat
     Route::resource('satuan', 'SatuanController');
     Route::post('satuan/api', 'SatuanController@api')->name('satuan.api');
+
+    //supplier
+    Route::resource('supplier', 'SupplierController');
+    Route::post('supplier/api', 'SupplierController@api')->name('supplier.api');
+
+    //transaksi tunai 
+    Route::resource('transaksi_tunai', 'TunaiController');
+
+    //list Transaksi
+    Route::resource('list_transaksi', 'ListController');
+
+    //laporan
+    Route::resource('laporan_penjualan', 'LaporanController');
 
 });
 

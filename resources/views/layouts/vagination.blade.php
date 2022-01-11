@@ -68,11 +68,22 @@
     </li>
     @endcan
 
+    @can('supplier')
+
+    <li>
+        <a href="{{route('Asyfa.supplier.index')}}"><i class="icon icon-car red-text s-18"></i>
+        <span>Supplier</span>
+        <i class="icon icon-angle-right s-18 pull-right"></i>
+        </a>
+    </li>
+
+    @endcan
+
    <li class="header"><strong>MASTER TRANSAKSI</strong></li>
 
    @can('transaksi_tunai')
    <li>
-        <a href=""><i class="icon icon-add_shopping_cart green-text s-18"></i>
+        <a href="{{route('Asyfa.transaksi_tunai.index')}}"><i class="icon icon-add_shopping_cart green-text s-18"></i>
         <span>Transaksi Tunai</span>
         <i class="icon icon-angle-right s-18 pull-right"></i>
         </a>
@@ -82,7 +93,7 @@
     @can('list_transaksi')
 
     <li>
-        <a href=""><i class="icon icon-list3 blue-text s-18"></i>
+        <a href="{{route('Asyfa.list_transaksi.index')}}"><i class="icon icon-list3 blue-text s-18"></i>
         <span>List Transaksi</span>
         <i class="icon icon-angle-right s-18 pull-right"></i>
         </a>
@@ -94,7 +105,7 @@
 
     @can('laporan')
     <li>
-        <a href=""><i class="icon icon-clipboard-edit2 red-text s-18"></i>
+        <a href="{{route('Asyfa.laporan_penjualan.index')}}"><i class="icon icon-clipboard-edit2 red-text s-18"></i>
         <span>Laporan Penjualan</span>
         <i class="icon icon-angle-right s-18 pull-right"></i>
         </a>

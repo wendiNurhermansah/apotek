@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Jenis_barang;
 use App\Models\Satuan;
+use App\Models\Supplier;
 
 class Data_barang extends Model
 {
@@ -17,5 +18,9 @@ class Data_barang extends Model
 
     public function Satuan(){
         return $this->belongsTo(Satuan::class, 'satuan');
+    }
+
+    public function Supplier(){
+        return $this->belongsTo(Supplier::class, 'supplier_id');
     }
 }

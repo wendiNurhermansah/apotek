@@ -40,9 +40,10 @@
                                                 <div class="col-md-6 p-0 bg-light">
                                                     <select class="select2 form-control r-0 light s-12" name="satuan" id="satuan" autocomplete="off">
                                                         <option value="">Pilih</option>
-                                                        <option value="1" {{ $Data_barang->satuan == 1 ? 'selected' : 'Strip' }}>Strip</option>
-                                                        <option value="2" {{ $Data_barang->satuan == 2 ? 'selected' : 'Tablet' }}>Tablet</option>
-                                                        <option value="3" {{ $Data_barang->satuan == 3 ? 'selected' : 'Box' }}>Box</option>
+                                                        <option value="">Pilih</option>
+                                                        @foreach ($satuan as $i)
+                                                            <option value="{{$i->id}}" {{ $i->id == $Data_barang->satuan ? 'selected' : '' }}>{{$i->n_satuan}}</option>
+                                                        @endforeach
                                                        
                                                     </select>
                                                 </div>
@@ -54,6 +55,17 @@
                                                         <option value="">Pilih</option>
                                                          @foreach ($jenis_barang as $i)
                                                             <option value="{{$i->id}}" {{ $i->id == $Data_barang->jenis_barang_id ? 'selected' : '' }}>{{$i->n_jenis_barang}}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group mt-3">
+                                                <label class="col-form-label s-12 col-md-2">Supplier</label>
+                                                <div class="col-md-6 p-0 bg-light">
+                                                    <select class="select2 form-control r-0 light s-12" name="supplier_id" id="supplier_id" autocomplete="off">
+                                                        <option value="">Pilih</option>
+                                                         @foreach ($supplier as $i)
+                                                            <option value="{{$i->id}}" {{ $i->id == $Data_barang->supplier_id ? 'selected' : '' }}>{{$i->n_supplier}}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>

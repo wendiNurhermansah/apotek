@@ -15,14 +15,14 @@ class CreateDataBarangTable extends Migration
     {
         Schema::create('data_barang', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_barang');
-            $table->string('jenis_barang_id');
-            
-            $table->string('harga_barang');
-            $table->string('jumlah_barang');
-            $table->string('harga_perawat');
-            $table->string('satuan');
-            $table->string('harga_jual');
+            $table->string('nama_barang')->nullable();
+            $table->string('jenis_barang_id')->nullable();
+            $table->string('supplier_id')->nullable();
+            $table->string('satuan')->nullable();
+            $table->string('harga_barang')->nullable();
+            $table->string('jumlah_barang')->nullable();
+            $table->string('harga_perawat')->nullable();
+            $table->string('harga_jual')->nullable();
             $table->timestamps();
         });
     }

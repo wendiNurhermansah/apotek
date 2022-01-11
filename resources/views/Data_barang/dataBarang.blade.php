@@ -44,6 +44,7 @@
                                             <th>NAMA OBAT</th>
                                             <th>SATUAN</th>
                                             <th>JENIS OBAT</th>
+                                            <th>SUPPLIER</th>
                                             <th>HARGA BELI</th>
                                             <th>QTY</th>
                                             <th>HARGA JUAL</th>
@@ -98,6 +99,17 @@
                                                 </div>
                                             </div>
                                             <div class="form-group mt-3">
+                                                <label class="col-form-label s-12 col-md-2">Supplier</label>
+                                                <div class="col-md-6 p-0 bg-light">
+                                                    <select class="select2 form-control r-0 light s-12" name="supplier_id" id="supplier_id" autocomplete="off">
+                                                        <option value="">Pilih</option>
+                                                         @foreach ($supplier as $i)
+                                                            <option value="{{$i->id}}">{{$i->n_supplier}}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group mt-3">
                                                 <label for="harga_barang" class="col-form-label s-12 col-md-2">Harga Beli</label>
                                                 <input type="text" name="harga_barang" id="harga_barang" class="form-control r-0 light s-12 col-md-6" onkeyup="convertToRupiah(this)" autocomplete="off" required/>
                                             </div>
@@ -146,6 +158,7 @@
             {data: 'nama_barang', name: 'nama_barang'},
             {data: 'satuan', name: 'satuan'},
             {data: 'jenis_barang_id', name: 'jenis_barang_id'},
+            {data: 'supplier_id', name: 'supplier_id'},
             {data: 'harga_barang', name: 'harga_barang',  render: $.fn.dataTable.render.number(',', '.', 0, '')},
             {data: 'jumlah_barang', name: 'jumlah_barang'},
             {data: 'harga_jual', name: 'harga_jual',  render: $.fn.dataTable.render.number(',', '.', 0, '')},

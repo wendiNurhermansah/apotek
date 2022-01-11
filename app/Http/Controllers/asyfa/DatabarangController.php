@@ -7,7 +7,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Data_barang;
 use App\Models\Jenis_barang;
 use App\Models\Satuan;
-use DataTables;
+use App\Models\Supplier;
+use Yajra\DataTables\DataTables;
 
 
 
@@ -24,7 +25,8 @@ class DatabarangController extends Controller
     {
         $jenis_barang = Jenis_barang::all();
         $satuan = Satuan::all();
-        return view ('Data_barang.dataBarang', compact('jenis_barang', 'satuan'));
+        $supplier = Supplier::all();
+        return view ('Data_barang.dataBarang', compact('jenis_barang', 'satuan', 'supplier'));
     }
 
     public function api(){
@@ -45,6 +47,10 @@ class DatabarangController extends Controller
             ->editColumn('satuan', function($p){
                return $p->Satuan->n_satuan;
             })
+
+            ->editColumn('supplier_id', function($p){
+                return $p->Supplier->n_supplier;
+             })
 
             ->addIndexColumn()
             ->rawColumns(['action', 'jenis_barang','satuan'])
@@ -77,26 +83,29 @@ class DatabarangController extends Controller
             'harga_jual' => 'required',
             'jumlah_barang' => 'required',
             'satuan' => 'required',
+            
 
         ]);
 
         $nama_barang = $request->nama_barang;
         $jenis = $request->jenis_barang_id;
+        $sup = $request->supplier_id;
         $satuan = $request->satuan;
         $beli = str_replace(".", "", $request->harga_barang);
         $qty = $request->jumlah_barang;
         $jual = str_replace(".", "", $request->harga_jual);
         $nakes = str_replace(".", "", $request->harga_perawat);
 
-        $Data_perusahaan = new Data_barang();
-        $Data_perusahaan->nama_barang = $nama_barang;
-        $Data_perusahaan->jenis_barang_id = $jenis;
-        $Data_perusahaan->satuan = $satuan;
-        $Data_perusahaan->harga_barang = $beli;
-        $Data_perusahaan->jumlah_barang = $qty;
-        $Data_perusahaan->harga_jual = $jual;
-        $Data_perusahaan->harga_perawat = $nakes;
-        $Data_perusahaan->save();
+        $Data_barang = new Data_barang();
+        $Data_barang->nama_barang = $nama_barang;
+        $Data_barang->jenis_barang_id = $jenis;
+        $Data_barang->satuan = $satuan;
+        $Data_barang->supplier_id = $sup;
+        $Data_barang->harga_barang = $beli;
+        $Data_barang->jumlah_barang = $qty;
+        $Data_barang->harga_jual = $jual;
+        $Data_barang->harga_perawat = $nakes;
+        $Data_barang->save();
 
         return response()->json([
             'message' => 'Data berhasil tersimpan.'
@@ -124,7 +133,10 @@ class DatabarangController extends Controller
     {
         $Data_barang = Data_barang::find($id);
         $jenis_barang = Jenis_barang::all();
-        return view('Data_barang.editBarang', compact('Data_barang','jenis_barang'));
+       
+        $satuan = Satuan::all();
+        $supplier = Supplier::all();
+        return view('Data_barang.editBarang', compact('Data_barang','jenis_barang','satuan', 'supplier'));
     }
 
     /**
@@ -145,12 +157,14 @@ class DatabarangController extends Controller
             'harga_jual' => 'required',
             'jumlah_barang' => 'required',
             'satuan' => 'required',
+            
 
         ]);
 
         $nama = $request->nama_barang;
         // dd($nama_barang);
         $jenis = $request->jenis_barang_id;
+        $sup = $request->supplier_id;
         // dd($jenis);
         $satuan = $request->satuan;
         $beli = $request->harga_barang;
@@ -166,6 +180,7 @@ class DatabarangController extends Controller
             'jumlah_barang' => $qty,
             'harga_perawat' => $nakes,
             'harga_jual' => $jual,
+            'supplier_id' => $sup,
             
             'satuan' => $satuan
         ]);

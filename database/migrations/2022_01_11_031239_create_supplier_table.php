@@ -14,7 +14,7 @@ class CreateSupplierTable extends Migration
     public function up()
     {
         Schema::create('supplier', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->string('n_supplier')->nullable();
             $table->string('no_hp')->nullable();
             $table->string('alamat')->nullable();

@@ -14,7 +14,7 @@ class CreateAdminDetailsTable extends Migration
     public function up()
     {
         Schema::create('admin_details', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->integer('admin_id');
             $table->string('nama');
             $table->string('email');

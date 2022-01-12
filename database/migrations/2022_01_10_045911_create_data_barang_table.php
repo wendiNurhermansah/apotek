@@ -14,11 +14,11 @@ class CreateDataBarangTable extends Migration
     public function up()
     {
         Schema::create('data_barang', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->string('nama_barang')->nullable();
-            $table->string('jenis_barang_id')->nullable();
-            $table->string('supplier_id')->nullable();
-            $table->string('satuan')->nullable();
+            $table->integer('jenis_barang_id')->nullable(); 
+            $table->integer('supplier_id')->nullable();
+            $table->integer('satuan')->nullable();  
             $table->string('harga_barang')->nullable();
             $table->string('jumlah_barang')->nullable();
             $table->string('harga_perawat')->nullable();

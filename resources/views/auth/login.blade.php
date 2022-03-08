@@ -10,6 +10,9 @@
     <title>LOGIN AKUN</title>
     <!-- CSS -->
     <link rel="stylesheet" href="{{asset('assets/css/app.css')}}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
     <style>
         .loader {
             position: fixed;
@@ -124,7 +127,7 @@
                             <img src="{{asset('assets/img/apotek.jpeg')}}" style="border-radius: 10px;" alt="">
                         </div>
                         <div class="col-lg-6 p-t-100">
-                            <div class="text-white">
+                            <div class="text-white"  style="font-family: 'Montserrat', sans-serif;">
                                 <h1>LOGIN AKUN</h1>
                                 <h3>Data Barang Obat Apotek Asyifa</h3>
 
@@ -147,7 +150,7 @@
                                     </div>
                                     @endif
                                 </div>
-                                <input type="submit" class="btn btn-dark btn-lg btn-block" value="LOGIN">
+                                <input type="submit" class="btn btn-lg btn-block" style="background-color: #ec753d; color:#F5F8FA;" value="LOGIN">
                             </form>
                         </div>
                     </div>

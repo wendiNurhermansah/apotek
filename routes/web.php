@@ -64,6 +64,8 @@ Route::prefix('Asyfa')->namespace('asyfa')->name('Asyfa.')->group(function(){
     Route::post('supplier/api', 'SupplierController@api')->name('supplier.api');
 
     //transaksi tunai 
+    
+    Route::get('transaksi_tunai/cari', 'TunaiController@cari')->name('transaksi_tunai.cari');
     Route::resource('transaksi_tunai', 'TunaiController');
 
     //list Transaksi
@@ -73,6 +75,8 @@ Route::prefix('Asyfa')->namespace('asyfa')->name('Asyfa.')->group(function(){
     Route::resource('laporan_penjualan', 'LaporanController');
 
 });
+
+
 
 
 

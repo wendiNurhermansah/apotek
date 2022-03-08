@@ -4,6 +4,8 @@ namespace App\Http\Controllers\asyfa;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Data_barang;
+use Illuminate\Support\Facades\DB;
 
 class TunaiController extends Controller
 {
@@ -14,7 +16,21 @@ class TunaiController extends Controller
      */
     public function index()
     {
-        return view('transaksi.tunai');
+        $obat = Data_barang::all();
+        return view('transaksi.tunai', compact('obat'));
+    }
+
+
+    
+
+    public function cari(Request $request){
+
+        // dd($request->search);
+        $cari = $request->search;
+	
+		$obat = Data_barang::where('nama_barang','like',"%".$cari."%")->get();
+        // dd($obat);
+        return view('transaksi.tunai', compact('obat'));
     }
 
     /**

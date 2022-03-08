@@ -13,7 +13,7 @@
     </div>
 </div>
     <div class="sticky">
-        <div class="navbar navbar-expand navbar-dark d-flex justify-content-between bd-navbar green accent-3">
+        <div style="background-color: #01913c;" class="navbar navbar-expand navbar-dark d-flex justify-content-between bd-navbar accent-3">
            
             <div class="relative">
                 <a href="#" data-toggle="push-menu" class="paper-nav-toggle pp-nav-toggle">

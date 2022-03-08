@@ -3,7 +3,7 @@
 
 @section('content')
 <div class="page has-sidebar-left bg-light">
-    <header class="green accent-3 relative nav-sticky">
+    <header style="background-color: #01913c" class="accent-3 relative nav-sticky">
         <div class="container-fluid text-white">
             <div class="row">
                 <div class="col">

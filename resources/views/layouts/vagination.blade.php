@@ -41,14 +41,7 @@
    
 
     <li class="header"><strong>MASTER DATA</strong></li>
-    @can('data_obat')
-    <li>
-        <a href="{{route('Asyfa.Data_barang.index')}}"><i class="icon icon-glass orange-text s-18"></i>
-        <span>Data Obat</span>
-        <i class="icon icon-angle-right s-18 pull-right"></i>
-        </a>
-    </li>
-    @endcan
+    
 
     @can('jenis_obat')
     <li>
@@ -71,7 +64,7 @@
     @can('supplier')
 
     <li>
-        <a href="{{route('Asyfa.supplier.index')}}"><i class="icon icon-car red-text s-18"></i>
+        <a href="{{route('Asyfa.supplier.index')}}"><i class="icon icon-car green-text s-18"></i>
         <span>Supplier</span>
         <i class="icon icon-angle-right s-18 pull-right"></i>
         </a>
@@ -79,9 +72,36 @@
 
     @endcan
 
-   <li class="header"><strong>MASTER TRANSAKSI</strong></li>
+    @can('data_obat')
+    <li>
+        <a href="{{route('Asyfa.Data_barang.index')}}"><i class="icon icon-glass orange-text s-18"></i>
+        <span>Data Obat</span>
+        <i class="icon icon-angle-right s-18 pull-right"></i>
+        </a>
+    </li>
+    @endcan
 
-   @can('transaksi_tunai')
+   <li class="header"><strong>MASTER BARANG</strong></li>
+
+    <li>
+        <a href="#}">
+            <i class="icon icon-arrow_downward green-text s-18"></i>
+            <span>Barang Masuk</span>
+            <i class="icon icon-angle-right s-18 pull-right"></i>
+        </a>
+    </li>
+
+    <li>
+        <a href="#}">
+            <i class="icon icon-arrow_upward red-text s-18"></i>
+            <span>Barang Keluar</span>
+            <i class="icon icon-angle-right s-18 pull-right"></i>
+        </a>
+    </li>
+
+    
+
+   {{-- @can('transaksi_tunai')
    <li>
         <a href="{{route('Asyfa.transaksi_tunai.index')}}"><i class="icon icon-add_shopping_cart green-text s-18"></i>
         <span>Transaksi Tunai</span>
@@ -98,14 +118,14 @@
         <i class="icon icon-angle-right s-18 pull-right"></i>
         </a>
     </li>
-    @endcan
+    @endcan --}}
 
 
     <li class="header"><strong>MASTER REPORT</strong></li>
 
     @can('laporan')
     <li>
-        <a href="{{route('Asyfa.laporan_penjualan.index')}}"><i class="icon icon-clipboard-edit2 red-text s-18"></i>
+        <a href="{{route('Asyfa.laporan_penjualan.index')}}"><i class="icon icon-clipboard-edit2 blue-text s-18"></i>
         <span>Laporan Penjualan</span>
         <i class="icon icon-angle-right s-18 pull-right"></i>
         </a>

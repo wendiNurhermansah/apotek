@@ -74,6 +74,15 @@ Route::prefix('Asyfa')->namespace('asyfa')->name('Asyfa.')->group(function(){
     //laporan
     Route::resource('laporan_penjualan', 'LaporanController');
 
+    //barang masuk
+    Route::resource('Barang_masuk', 'Barang_masukController');
+    Route::post('Barang_masuk/tables', 'Barang_masukController@tables')->name('Barang_masuk.tables');
+
+    //barang keluar
+    Route::resource('Barang_keluar', 'Barang_keluarController');
+    Route::post('Barang_keluar/tables', 'Barang_keluarController@tables')->name('Barang_keluar.tables');
+
+
 });
 
 

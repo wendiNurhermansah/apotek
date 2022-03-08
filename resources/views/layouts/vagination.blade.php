@@ -1,5 +1,5 @@
 <ul class="sidebar-menu">
-    <li class="header"><strong>MAIN NAVIGATION</strong></li>
+    <li class="header"><strong>MASTER BERANDA</strong></li>
     @can('dashboard')
     <li class="treeview"><a href="{{route('dashboard')}}">
         <i class="icon icon-sailing-boat-water purple-text s-18"></i> <span>Dashboard</span>
@@ -82,22 +82,27 @@
     @endcan
 
    <li class="header"><strong>MASTER BARANG</strong></li>
-
+    @can('barang_masuk')
+        
     <li>
-        <a href="#}">
+        <a href="{{route('Asyfa.Barang_masuk.index')}}">
             <i class="icon icon-arrow_downward green-text s-18"></i>
             <span>Barang Masuk</span>
             <i class="icon icon-angle-right s-18 pull-right"></i>
         </a>
     </li>
-
+    @endcan
+    @can('barang_keluar')
+        
     <li>
-        <a href="#}">
+        <a href="{{route('Asyfa.Barang_keluar.index')}}">
             <i class="icon icon-arrow_upward red-text s-18"></i>
             <span>Barang Keluar</span>
             <i class="icon icon-angle-right s-18 pull-right"></i>
         </a>
     </li>
+    @endcan
+
 
     
 

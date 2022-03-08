@@ -144,11 +144,17 @@
 </div>
 @endsection
 @section('script')
+
+
  <script type="text/javascript">
     var table = $('#dataTable').dataTable({
         processing: true,
         serverSide: true,
         order: [ 0, 'asc' ],
+        dom: 'Bfrtip',
+        buttons: [
+            'excel', 'pdf',
+        ],
         ajax: {
             url: "{{ route('Asyfa.Data_barang.api') }}",
             method: 'POST'

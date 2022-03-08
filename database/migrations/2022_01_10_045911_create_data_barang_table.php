@@ -20,7 +20,7 @@ class CreateDataBarangTable extends Migration
             $table->integer('supplier_id')->nullable();
             $table->integer('satuan')->nullable();  
             $table->string('harga_barang')->nullable();
-            $table->string('jumlah_barang')->nullable();
+            $table->integer('jumlah_barang', 100)->nullable();
             $table->string('harga_perawat')->nullable();
             $table->string('harga_jual')->nullable();
             $table->timestamps();

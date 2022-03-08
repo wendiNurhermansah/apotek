@@ -82,6 +82,10 @@
     var table = $('#dataTable').dataTable({
    processing: true,
    serverSide: true,
+   dom: 'Bfrtip',
+        buttons: [
+            'excel', 'pdf',
+        ],
    order: [ 0, 'asc' ],
    ajax: {
        url: "{{ route('Asyfa.supplier.api') }}",

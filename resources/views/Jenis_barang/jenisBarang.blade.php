@@ -72,6 +72,10 @@
    processing: true,
    serverSide: true,
    order: [ 0, 'asc' ],
+   dom: 'Bfrtip',
+        buttons: [
+            'excel', 'pdf',
+        ],
    ajax: {
        url: "{{ route('Asyfa.Jenis_barang.api') }}",
        method: 'POST'

@@ -57,7 +57,7 @@
                                 <div class="col">
                                    
                                         <img class="user_avatar" src="{{asset('assets/img/dummy/u2.png')}}" alt="User Image">
-                                        <h6 class="font-weight-light mt-2 mb-1">{{ Auth::user()->username }}git</h6>
+                                        <h6 class="font-weight-light mt-2 mb-1">{{ Auth::user()->username }}</h6>
                                      
                                         
                                 </div>

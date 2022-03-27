@@ -73,6 +73,7 @@ Route::prefix('Asyfa')->namespace('asyfa')->name('Asyfa.')->group(function(){
 
     //laporan
     Route::resource('laporan_penjualan', 'LaporanController');
+    Route::get('laporan', 'LaporanController@report')->name('laporan.report');
 
     //barang masuk
     Route::resource('Barang_masuk', 'Barang_masukController');

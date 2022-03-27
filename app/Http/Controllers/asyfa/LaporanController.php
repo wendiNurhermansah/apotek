@@ -17,6 +17,13 @@ class LaporanController extends Controller
         return view('laporan.index');
     }
 
+
+    public function report(Request $request){
+        // dd($request->jenis_laporan);
+        return view('laporan.report');
+    
+    }
+
     /**
      * Show the form for creating a new resource.
      *

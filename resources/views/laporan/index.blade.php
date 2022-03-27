@@ -21,7 +21,7 @@
                 <div class="col-md-12">
                     <div class="card no-b">
                         <div class="card-body">
-                            <form class="needs-validation" action="" id="form" method="GET"  enctype="multipart/form-data" novalidate>
+                            <form class="needs-validation" action="{{ route('Asyfa.laporan.report') }}" id="form" method="GET"  enctype="multipart/form-data" novalidate>
 
                                 <input type="hidden" id="id" name="id"/>
                                 <h4 id="formTitle">Laporan</h4><hr>
@@ -30,7 +30,7 @@
                                         <div class="form-group mt-3">
                                         <label class="col-form-label s-12 col-md-2"><strong><b>Jenis Laporan</b></strong></label>
                                         <div class="col-md-6 p-0 bg-light">
-                                            <select class="select2 form-control r-0 light s-12" name="jenis_laporan" id="jenis_laporan" autocomplete="off">
+                                            <select class="select2 form-control r-0 light s-12" name="n " id="jenis_laporan" autocomplete="off">
                                                 <option value="">Pilih</option>
                                                 <option value="0">Laporan Masuk</option>
                                                 <option value="1">Laporan Keluar</option>

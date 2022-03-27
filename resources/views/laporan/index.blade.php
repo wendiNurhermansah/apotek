@@ -30,7 +30,7 @@
                                         <div class="form-group mt-3">
                                         <label class="col-form-label s-12 col-md-2"><strong><b>Jenis Laporan</b></strong></label>
                                         <div class="col-md-6 p-0 bg-light">
-                                            <select class="select2 form-control r-0 light s-12" name="n " id="jenis_laporan" autocomplete="off">
+                                            <select class="select2 form-control r-0 light s-12" name="jenis_laporan" id="jenis_laporan" autocomplete="off">
                                                 <option value="">Pilih</option>
                                                 <option value="0">Laporan Masuk</option>
                                                 <option value="1">Laporan Keluar</option>

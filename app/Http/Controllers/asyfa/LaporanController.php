@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\asyfa;
 
 use Illuminate\Http\Request;
+use App\Models\Barang_masuk;
 use App\Http\Controllers\Controller;
+use PDF;
 
 class LaporanController extends Controller
 {
@@ -19,8 +21,39 @@ class LaporanController extends Controller
 
 
     public function report(Request $request){
+
+        if($request->tanggaldari == '' || $request->tanggalsampai == ''  || !isset($request->tanggaldari))
+            return abort(403, "inputan tanggal tidak boleh kosong");
+
         // dd($request->jenis_laporan);
-        return view('laporan.report');
+        $jenis_laporan = $request->jenis_laporan;
+        $tanggal_dari = $request->tanggaldari;
+        $tanggal_sampai = $request->tanggalsampai;
+        $data = Barang_masuk::where('status', $request->jenis_laporan)->whereBetween('tanggal', [$request->tanggaldari, $request->tanggalsampai])->get();
+        // dd($data);
+        $sum_qty = Barang_masuk::where('status', $request->jenis_laporan)->whereBetween('tanggal', [$request->tanggaldari, $request->tanggalsampai])->sum('qty_obat');
+        $sum_harga = Barang_masuk::where('status', $request->jenis_laporan)->whereBetween('tanggal', [$request->tanggaldari, $request->tanggalsampai])->sum('total');
+        // dd($sum_harga);
+
+        if ($jenis_laporan == 0) {
+            $judul = 'Laporan_barang_masuk.pdf';
+        } else {
+            $judul = 'Laporan_barang_keluar.pdf';
+        };
+        
+        
+
+
+        // return view('laporan.report', compact('data', 'tanggal_dari', 'tanggal_sampai','sum_qty','sum_harga'));
+        $pdf = PDF::loadview('laporan.report', [
+            'data' => $data,
+            'tanggal_dari' => $tanggal_dari,
+            'tanggal_sampai' => $tanggal_sampai,
+            'sum_qty' => $sum_qty,
+            'sum_harga' => $sum_harga,
+            'jenis_laporan' => $jenis_laporan
+            ]);
+        return $pdf->stream($judul);
     
     }
 

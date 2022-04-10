@@ -28,7 +28,7 @@
                                     <span class="icon icon-notebook-text  s-48"></span>
                                 </div>
                                 <div class="counter-title"><strong>Jumlah Jenis Obat</strong></div>
-                                <h5 class=" mt-3"> Jenis</h5>
+                                <h5 class="mt-5">{{ number_format($jenis) }}</h5>
                                 
                             </div>
                         </div>
@@ -39,8 +39,8 @@
                                 <div class="float-right">
                                     <span class="icon icon-organization-1  s-48"></span>
                                 </div>
-                                <div class="counter-title"><strong>Jumlah Keseluruhan stok Obat</strong></div>
-                                <h5 class=" mt-3"> Pcs</h5>
+                                <div class="counter-title"><strong>Jumlah Keseluruhan Obat</strong></div>
+                                <h5 class=" mt-3">{{ number_format($barang) }}</h5>
                                 
                             </div>
                         </div>
@@ -52,7 +52,7 @@
                                     <span class="icon icon-money-bag  s-48"></span>
                                 </div>
                                 <div class="counter-title"><strong>Penghasilan hari ini</strong></div>
-                                <h5 class=" mt-3"></h5>
+                                <h5 class=" mt-3">{{ number_format($today) }}</h5>
                             </div>
                         </div>
                     </div>
@@ -63,7 +63,7 @@
                                     <span class="icon icon-dollar  s-48"></span>
                                 </div>
                                 <div class="counter-title"><strong>Penghasilan Bulan ini</strong></div>
-                                <h5 class=" mt-3"></h5>
+                                <h5 class=" mt-3">{{ number_format($month) }}</h5>
                             </div>
                         </div>
                     </div>

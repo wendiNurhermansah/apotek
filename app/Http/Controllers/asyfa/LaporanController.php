@@ -53,7 +53,7 @@ class LaporanController extends Controller
             'sum_harga' => $sum_harga,
             'jenis_laporan' => $jenis_laporan
             ]);
-        return $pdf->stream($judul);
+        return $pdf->download($judul);
     
     }
 

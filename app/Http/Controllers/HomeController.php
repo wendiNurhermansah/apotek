@@ -23,7 +23,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        dd('tes');
+        // dd('tes');
         return view('home');
     }
 }
